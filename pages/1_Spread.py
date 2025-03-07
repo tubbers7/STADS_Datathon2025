@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
 from untitled import load_influenza_df, load_age_df, load_vaccine_df, merge_vac_cases, create_geo_df
 import plotly.express as px
+import altair as alt
 
 # --- Load Data ---
 @st.cache_data  # Caches data to improve performance
@@ -49,33 +50,17 @@ if filtered_df.empty:
 else:
     # Convert DataFrame to GeoDataFrame
     gdf = gpd.GeoDataFrame(filtered_df, geometry='geometry')
-    # --- Create Plotly Choropleth Map ---
-    fig = px.choropleth(gdf,
-                        geojson=gdf.geometry.__geo_interface__,  # Using GeoDataFrame geometry for the map
-                        locations=gdf.index,
-                        color="InfluenzaCasesPerCapita",  # Column for color scale
-                        hover_name="Region",  # Information to display on hover
-                        color_continuous_scale="YlOrRd",  # Color scale (you can change this)
-                        labels={"InfluenzaCasesPerCapita": "Influenza Cases Per Capita"},
-                        title=f"Influenza Cases Per Capita - Week {selected_week}, {selected_year}")
-
-    # Update map layout to remove borders and improve appearance
-    fig.update_geos(fitbounds="locations", visible=False)  # Hide borders
-    fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})  # Remove extra margins
-    
-    # --- Display Plot in Streamlit ---
-    st.plotly_chart(fig)
     
     # --- Create Matplotlib Choropleth Map ---
-    # fig, ax = plt.subplots(figsize=(6, 6))
-    # gdf.plot(column="InfluenzaCasesPerCapita", 
-    #          cmap="YlOrRd", 
-    #          legend=True, 
-    #          legend_kwds={"label": "Influenza Cases Per Capita", "orientation": "horizontal"}, 
-    #          ax=ax)
+    fig, ax = plt.subplots(figsize=(6, 6))
+    gdf.plot(column="InfluenzaCasesPerCapita", 
+             cmap="YlOrRd", 
+             legend=True, 
+             legend_kwds={"label": "Influenza Cases Per Capita", "orientation": "horizontal"}, 
+             ax=ax)
 
-    # ax.set_title(f"Influenza Cases Per Capita - Week {selected_week}, {selected_year}")
-    # ax.axis("off")  # Hide axes for a clean look
+    ax.set_title(f"Influenza Cases Per Capita - Week {selected_week}, {selected_year}")
+    ax.axis("off")  # Hide axes for a clean look
 
-    # # --- Display Plot in Streamlit ---
-    # st.pyplot(fig)
+    # --- Display Plot in Streamlit ---
+    st.pyplot(fig)
