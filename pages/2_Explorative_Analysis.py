@@ -35,3 +35,7 @@ st.bar_chart(df, x="age_group", y="extrapolated", color="insurancetype", stack=F
 st.write("Plot 3 - Risk Groups and Age Group")
 st.bar_chart(df_rg, x="risk_groups", y="extrapolated", color="age_group", stack=False,
                 y_label = "Risk Groups", x_label = "Extrapolated Amount of Vaccinations", horizontal=True)
+
+st.write("Plot 4 - Federal State and Insurance Type")
+st.bar_chart(df, x="kvregion", y="extrapolated", color="age_group", stack=False,
+                y_label = "Federal State", x_label = "Extrapolated Amount of Vaccinations", horizontal=True)
