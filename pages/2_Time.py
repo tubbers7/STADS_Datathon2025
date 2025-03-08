@@ -8,6 +8,7 @@ from untitled import load_influenza_df, load_age_df, load_vaccine_df, merge_vac_
 import plotly.express as px
 import altair as alt
 import seaborn as sns
+st.set_page_config(page_title="CGM Demo", page_icon="✨")
 
 # --- Load Data ---
 @st.cache_data  # Caches data to improve performance
