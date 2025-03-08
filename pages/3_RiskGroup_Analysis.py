@@ -9,10 +9,10 @@ import plotly.express as px
 @st.cache_data  # Caches data to improve performance
 
 def load_data():
-    df1 = pd.read_csv("C:\\Users\\Arved\Desktop\\STADS_Datathon2025\\disease_prevelance_simple.csv", sep=',')
+    df1 = pd.read_csv("./disease_prevelance_simple.csv", sep=',')
     print(df1.columns)
     # Load the second CSV file (using semicolon as the separator)
-    df2 = pd.read_csv('C:\\Users\\Arved\\Desktop\\STADS_Datathon2025\\20025-03-07_cgm-datathon-challenge-flu_riskgroupsv1.csv', sep=';')
+    df2 = pd.read_csv('./20025-03-07_cgm-datathon-challenge-flu_riskgroupsv1.csv', sep=';')
     print(df2.columns)
     # Merge the two DataFrames on 'Disease' from df2 and 'risk_groups' from df1 using an outer join
     merged_df = pd.merge(df1, df2, left_on='Disease', right_on='risk_groups', how='outer')

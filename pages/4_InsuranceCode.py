@@ -7,7 +7,7 @@ from untitled import load_influenza_df, load_age_df, load_vaccine_df, merge_vac_
 import plotly.express as px
 
 # --- Load Data ---
-df = pd.read_csv("C:\\Users\\Arved\\Desktop\\STADS_Datathon2025\\final_merged_no_dupe.csv", sep=",")
+df = pd.read_csv("./final_merged_no_dupe.csv", sep=",")
 
 import streamlit as st
 import pandas as pd
@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 #st.set_page_config(layout="wide")
 
 # Load data
-dfr = pd.read_csv("final_merged_no_dupe.csv", sep=",")
+dfr = pd.read_csv("./final_merged_no_dupe.csv", sep=",")
 
 # Insurance code mapping
 insurancecode_mapping = {

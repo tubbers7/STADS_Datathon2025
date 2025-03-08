@@ -8,7 +8,7 @@ from tables_for_exploration import load_df_p1, load_df_p2,load_df_p3,load_df_p4
 import plotly.express as px
 
 # --- Load Data ---
-df = pd.read_csv("C:\\Users\\Arved\\Desktop\\STADS_Datathon2025\\final_merged_no_dupe.csv", sep=",")
+df = pd.read_csv("./final_merged_no_dupe.csv", sep=",")
 # drop first column
 df = df.drop(df.columns[0], axis=1)
 

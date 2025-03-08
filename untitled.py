@@ -3,7 +3,7 @@ import os
 import pandas as pd
 import geopandas as gpd
 
-base_path = 'C:\\Users\\Arved\\Desktop\\STADS_Datathon2025\\Influenza_data\\'
+base_path = './Influenza_data/'
 def load_influenza_df():
     df_2023 = pd.read_csv(f"{base_path}survstat_2023/Data.csv", encoding="utf-16",sep = "\t",header=[1]).fillna(0).rename(columns={'Unnamed: 0':'Bundesland'})
     df_2024 = pd.read_csv(f"{base_path}survstat_2024/Data.csv", encoding="utf-16",sep = "\t",header=[1]).fillna(0).rename(columns={'Unnamed: 0':'Bundesland'})
@@ -60,8 +60,8 @@ def load_age_df():
     return df_grouped
 
 def load_vaccine_df():
-    file_path = "20025-03-07_cgm-datathon-challenge-flu_riskgroupsv1.csv"
-    file_path_1 = "20025-03-07_cgm-datathon-challenge-flu_v1.csv"
+    file_path = "./20025-03-07_cgm-datathon-challenge-flu_riskgroupsv1.csv"
+    file_path_1 = "./20025-03-07_cgm-datathon-challenge-flu_v1.csv"
     
     df = pd.read_csv(file_path, sep=";")
     df1 = pd.read_csv(file_path_1, sep=";")
@@ -129,7 +129,7 @@ def merge_vac_cases(df_vac, df_cases):
 
 
 def create_geo_df(df):
-    germany_map = gpd.read_file("vg2500/VG2500_LAN.shp")
+    germany_map = gpd.read_file("./vg2500/VG2500_LAN.shp")
     germany_map = germany_map.set_geometry("geometry") 
     germany_map = germany_map.loc[:15, :]
     germany_map['Region'] = germany_map['GEN']
