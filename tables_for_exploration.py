@@ -1,5 +1,5 @@
 import pandas as pd
-base_path = 'C:\\Users\\Arved\\Desktop\\STADS_Datathon2025\\'
+base_path = './'
 df = pd.read_csv(f'{base_path}final_merged_no_dupe.csv')
 
 new_df = pd.DataFrame(columns=['Federal State', 'Age Group', 'Ground Population'])

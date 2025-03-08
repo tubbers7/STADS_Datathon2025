@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 from untitled import load_influenza_df, load_age_df, load_vaccine_df, merge_vac_cases, create_geo_df
 from tables_for_exploration import load_df_p1, load_df_p2,load_df_p3,load_df_p4
 import plotly.express as px
+st.set_page_config(page_title="CGM Demo", page_icon="✨")
 
 # --- Load Data ---
 df = pd.read_csv("./final_merged_no_dupe.csv", sep=",")

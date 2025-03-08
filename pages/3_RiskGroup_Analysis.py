@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
 import numpy as np
 import plotly.express as px
+st.set_page_config(page_title="CGM Demo", page_icon="✨")
 
 # --- Load Data ---
 @st.cache_data  # Caches data to improve performance
-
 def load_data():
     df1 = pd.read_csv("./disease_prevelance_simple.csv", sep=',')
     print(df1.columns)
