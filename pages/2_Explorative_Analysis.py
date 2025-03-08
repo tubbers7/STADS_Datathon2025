@@ -39,6 +39,6 @@ st.write("Plot 3 - Risk Groups and Age Group")
 st.bar_chart(load_df_p3(df), x="risk_groups", y="Ratio", color="age_group", stack=False,
                 y_label = "High Risk Individuals", x_label = "Extrapolated Vaccination Percentage", horizontal=True)
 
-st.write("Plot 4 - Federal State and Insurance Type")
-st.bar_chart(load_df_p4(df), x="kvregion", y="Ratio", color="age_group", stack=False,
-                y_label = "Federal State", x_label = "Extrapolated Vaccination Percentage", horizontal=True)
+# st.write("Plot 4 - Federal State and Insurance Type")
+# st.bar_chart(load_df_p4(df), x="kvregion", y="Ratio", color="age_group", stack=False,
+#                 y_label = "Federal State", x_label = "Extrapolated Vaccination Percentage", horizontal=True)
