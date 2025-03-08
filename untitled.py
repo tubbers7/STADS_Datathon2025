@@ -3,7 +3,7 @@ import os
 import pandas as pd
 import geopandas as gpd
 
-base_path = '/home/kreffert/STADS_Datathon2025/Influenza_data/'
+base_path = 'C:\\Users\\Arved\\Desktop\\STADS_Datathon2025\\Influenza_data\\'
 def load_influenza_df():
     df_2023 = pd.read_csv(f"{base_path}survstat_2023/Data.csv", encoding="utf-16",sep = "\t",header=[1]).fillna(0).rename(columns={'Unnamed: 0':'Bundesland'})
     df_2024 = pd.read_csv(f"{base_path}survstat_2024/Data.csv", encoding="utf-16",sep = "\t",header=[1]).fillna(0).rename(columns={'Unnamed: 0':'Bundesland'})

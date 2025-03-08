@@ -9,10 +9,10 @@ import plotly.express as px
 @st.cache_data  # Caches data to improve performance
 
 def load_data():
-    df1 = pd.read_csv('/Users/toby/STADS_Datathon2025/disease_prevelance_simple.csv', sep=',')
+    df1 = pd.read_csv("C:\\Users\\Arved\Desktop\\STADS_Datathon2025\\disease_prevelance_simple.csv", sep=',')
     print(df1.columns)
     # Load the second CSV file (using semicolon as the separator)
-    df2 = pd.read_csv('/Users/toby/STADS_Datathon2025/20025-03-07_cgm-datathon-challenge-flu_riskgroupsv1.csv', sep=';')
+    df2 = pd.read_csv('C:\\Users\\Arved\\Desktop\\STADS_Datathon2025\\20025-03-07_cgm-datathon-challenge-flu_riskgroupsv1.csv', sep=';')
     print(df2.columns)
     # Merge the two DataFrames on 'Disease' from df2 and 'risk_groups' from df1 using an outer join
     merged_df = pd.merge(df1, df2, left_on='Disease', right_on='risk_groups', how='outer')
@@ -73,7 +73,7 @@ autolabel(bars2)
 
 plt.tight_layout()
 
-st.write("Plot 1 - Population vs. Dataset Prevelance (using with_riskgroups)")
+st.subheader("Plot 1 - Population vs. Dataset Prevelance (using with_riskgroups)")
 st.pyplot(fig)
 
 # Assume df is your DataFrame with columns including "risk_groups", "insurancetype", and "absolute"
@@ -134,6 +134,6 @@ autolabel(bars_pkv)
 
 plt.tight_layout()
 
-st.title('Plot 2 - Normalized Percentage of PKV and GKV Members in a given risk group')
+st.subheader('Plot 2 - Normalized Percentage of PKV and GKV Members in a given risk group')
 st.pyplot(fig)
 
