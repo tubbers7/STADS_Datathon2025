@@ -12,8 +12,8 @@ import seaborn as sns
 # --- Load Data ---
 @st.cache_data  # Caches data to improve performance
 def load_data():
-    file_path = "20025-03-07_cgm-datathon-challenge-flu_riskgroupsv1.csv"
-    file_path_1 = "20025-03-07_cgm-datathon-challenge-flu_v1.csv"
+    file_path = "./20025-03-07_cgm-datathon-challenge-flu_riskgroupsv1.csv"
+    file_path_1 = "./20025-03-07_cgm-datathon-challenge-flu_v1.csv"
     df = pd.read_csv(file_path, sep=";")
     df[['Year', 'CalendarWeek']] = df['week'].str.split('-', expand=True)
     df['Year'] = df['Year'].astype(int)  # Convert Year to integer
