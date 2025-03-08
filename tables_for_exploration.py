@@ -31,7 +31,7 @@ new_df.loc[len(new_df)] = ['Hessen', '0-29', (925+320+339+396)*1000]
 new_df.loc[len(new_df)] = ['Hessen', '30-59', (438+413+413+389+442+525)*1000]
 new_df.loc[len(new_df)] = ['Hessen', '60-199', (449+370+311+637)*1000]
 
-arved_df = pd.read_excel('/Users/toby/Downloads/state_pops.xlsx')
+arved_df = pd.read_excel('state_pops.xlsx')
 arved_df.head()
 
 final_ground_age_by_state = pd.concat([arved_df, new_df]).reset_index()
@@ -48,7 +48,7 @@ def load_df_p1(df):
     df_p1 = df_p1[(df_p1['gender'] == 'f') | (df_p1['gender'] == 'm')]
     df_p1['Ground Population'] = [37600000, 4420000, 35400000, 4280000]
     df_p1['Ratio'] = (df_p1['extrapolated']/df_p1['Ground Population'])*100
-    print(df_p1['Ratio'].sum())
+    df_p1['Ratio'] = df_p1['Ratio'].clip(upper=100)
     return df_p1
 
 load_df_p1(df).head()
@@ -64,6 +64,7 @@ def load_df_p2(df):
     df_p2['Ground Population'] = [22290000, 29720000, 22290000, 2610000, 3480000, 2610000]
     print(df_p2['Ground Population'].sum())
     df_p2['Ratio'] = (df_p2['extrapolated']/df_p2['Ground Population'])*100
+    df_p2['Ratio'] = df_p2['Ratio'].clip(upper=100)
     return df_p2
 
 load_df_p2(df).head(25)
@@ -79,7 +80,7 @@ def load_df_p3(df):
     df_p3 = df_p3.sort_values(by=['risk_groups'])
     df_p3['Ground Population'] = [2500000, 10000000, 14000000, 23750000, 20000000, 8000000]
     df_p3['Ratio'] = (df_p3['extrapolated']/df_p3['Ground Population'])*100
-    
+    df_p3['Ratio'] = df_p3['Ratio'].clip(upper=100)
     return df_p3
 
 load_df_p3(df).head(25)
@@ -97,5 +98,6 @@ def load_df_p4(df):
     merged_df_p4 = merged_df_p4[['kvregion', 'age_group', 'extrapolated', 'Ground Population']]
     df_p4 = merged_df_p4.copy()
     df_p4['Ratio'] = (df_p4['extrapolated']/df_p4['Ground Population'])*100
+    df_p4['Ratio'] = df_p4['Ratio'].clip(upper=100)
     return df_p4
 load_df_p4(df).head(60)
