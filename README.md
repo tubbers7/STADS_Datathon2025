@@ -1,34 +1,34 @@
-# STADS_Datathon2025
+# STADS Datathon 2025 🧬📊
 
-## Installation
-Python 3.13
-```bash
-pip install -r requirements.txt
-```
+This repository contains the code, analysis, and results for the STADS Datathon 2025. It includes a demographic and health data analysis combined with an interactive modeling approach using a framework that simulates targeted vaccination campaigns. Specifically, the project leverages an advanced model that simulates flu vaccination strategies in Germany by identifying flu risk groups, evaluating vaccination coverage, and optimizing vaccine distribution. This is done with the support of LLMs and reinforcement learning. More can be found in the slides. It also features exploratory data analysis and visualizations to support decision-making and interpretation.
 
-## Loading OpenAI Key
-```python
+# 📁 Project Structure
+	•	Notebooks
+	•	Demographic_data_clean.ipynb: Cleaning, preprocessing, and exploratory analysis of demographic and health-related datasets.
+	•	risk_group_notebook.ipynb: Aggregation, analysis, and visualization of health risk groups.
+	•	final_df: Merged and cleaned dataset combining both risk and non-risk populations.
+	•	Data Sources
+	•	cgm-datathon-challenge-flu_riskgroupsv1.csv: Flu Risk Groups Dataset.
+	•	European Core Health Indicators (ECHI).
 
-from dotenv import load_dotenv
-import os
+# 🛠️ Installation & Usage
 
+Step 1: Clone the Repository
 
-load_dotenv()
-openai_api_key = os.getenv("OPENAI_API_KEY")
-```
+git clone https://github.com/<your-github-username>/STADS_Datathon2025.git
+cd STADS_Datathon2025
 
-Was ist der Effekt auf die Infektionrate
+Step 2: Set Up the Environment
 
-Für jedes Bundesland
+Step 3: Run the Notebooks
+	•	Open the notebooks with Jupyter
 
+# 📚 Data Sources
+	•	European Core Health Indicators (ECHI)
+	•	GENESIS-Online (Statistisches Bundesamt Destatis)
 
-Prompt: Wir machen eine Impfkampanie. Auf Basis der folgenden Daten und deinem Wissen über die Region, schätze, wie sich dies auf die Infektionsrate auswirkt 
-Eingabe: 
-- Bundesland
-- Woche und Year, Monat
-- Infizierte Anzahl an Personen (auf BL Ebene)
-- Daten über Impfungen nach Identifiern 
-- Aktuelle Infektionsrate
+# 🤝 Contributing
 
+Feel free to open an issue or submit a pull request for improvements or suggestions.
 
-Ausgabe Infektionsrate
+Happy Analyzing! 🚀📈
