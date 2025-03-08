@@ -64,3 +64,41 @@ else:
 
     # --- Display Plot in Streamlit ---
     st.pyplot(fig)
+
+zoom_level = st.slider("Select Map Zoom Level:", min_value=3, max_value=10, value=6)
+if filtered_df.empty:
+    st.warning(f"No data available for Week {selected_week}, {selected_year}")
+else:
+    # Convert DataFrame to GeoDataFrame
+    gdf = gpd.GeoDataFrame(filtered_df, geometry='geometry')
+    
+    # Ensure geometry is in GeoJSON format
+    gdf = gdf.set_geometry("geometry")
+    gdf = gdf.to_crs(epsg=4326)  # Convert to WGS84 if not already
+    geojson_data = gdf.__geo_interface__  # Convert to GeoJSON format
+    
+    # Calculate dynamic center for a better view
+    lat_center = gdf.geometry.centroid.y.mean()
+    lon_center = gdf.geometry.centroid.x.mean()
+    
+    # Create Plotly Choropleth Map
+    fig = px.choropleth_mapbox(
+        gdf, 
+        geojson=geojson_data, 
+        locations=gdf.index, 
+        color="InfluenzaCasesPerCapita",
+        hover_name="Region",
+        color_continuous_scale="YlOrRd",
+        mapbox_style="carto-positron",
+        center={"lat": lat_center, "lon": lon_center},
+        zoom=zoom_level,
+        title=f"Influenza Cases Per Capita - Week {selected_week}, {selected_year}"
+    )
+    
+    # Save as HTML
+    fig.write_html("influenza_map.html")
+    st.success("Interactive map saved as influenza_map.html. Open it in a browser!")
+    
+    # Display in Streamlit
+    st.plotly_chart(fig)
+
