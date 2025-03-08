@@ -21,19 +21,19 @@ dfr = pd.read_csv("./final_merged_no_dupe.csv", sep=",")
 
 # Insurance code mapping
 insurancecode_mapping = {
-    "375": "Schutzimpfung (intramuskulär, subkutan)",
-    "2": "Wiederholungsrezepten und/oder Überweisungen",
-    "1": "Beratung",
-    "377": "Zusatzinjektion bei Parallelimpfung",
+    "375": "Schutzimpfung",
+    "2": "Überweisungen",
+    "1": "(Impf-) Beratung",
+    "377": "Zusatzinjektion bei ",
     "5": "Symptombezogene Untersuchung",
     "3": "lange Beratung",
-    "7": "Vollständige körperliche Untersuchung eines Organsystems",
+    "7": "Organsystemuntersuchung",
     "250": "Blutentnahme",
-    "89111": "Influenza (Virusgrippe) - Standardimpfung",
-    "89112": "Influenza (Indikationsimpfung)",
-    "89112Y": "Influenza (berufliche bzw. berufliche Reiseindikation)",
-    "89112Z": "Influenza (Satzungsimpfung) Pers. Bis 60 Jahre o sonst Ind.",
-    "89112T": "Influenza (Satzungsimpfung) Pers. unter 60 Jahre o sonst Ind.",
+    "89111": "Standardimpfung",
+    "89112": "Indikationsimpfung",
+    "89112Y": "Reiseimpfung (beruflich)",
+    "89112Z": "Satzungsimpfung over 60",
+    "89112T": "Satzungsimpfung under 60",
 }
 
 # Map insurance codes to their descriptions
